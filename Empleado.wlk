@@ -27,4 +27,16 @@ class Empleado {
     method cantidadLenguajes() {
         return lenguajes.size()
     }
+
+    method mesa() {
+        return self.cantidadLenguajesModernos()
+    }
+
+    method cantidadLenguajesModernos() {
+        return lenguajes.count { lenguaje => lenguaje.esModerno() }
+    }
+
+    method regaloEnEfectivo() {
+        return 1000 * self.cantidadLenguajesModernos()
+    }
 }
