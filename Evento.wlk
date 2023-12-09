@@ -2,6 +2,7 @@ import Empresa.*
 import Asistencia.*
 
 class Evento {
+    const empresa = acmeSA
     const asistencias = []
 
     method registrar(unEmpleado) {
@@ -37,5 +38,13 @@ class Evento {
 
     method cantidadAsistencias() {
         return asistencias.size()
+    }
+
+    method fueUnExito() {
+        return self.balance() > 0 && self.asistieronTodos()
+    }
+
+    method asistieronTodos() {
+        return self.cantidadAsistencias() == empresa.cantidadInvitados()
     }
 }
