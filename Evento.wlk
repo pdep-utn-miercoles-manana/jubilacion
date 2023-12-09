@@ -47,4 +47,12 @@ class Evento {
     method asistieronTodos() {
         return self.cantidadAsistencias() == empresa.cantidadInvitados()
     }
+
+    method mesaConMasAsistentes() {
+        return self.mesas().max { mesa => self.mesas().occurrencesOf(mesa) }
+    }
+
+    method mesas() {
+        return asistencias.map { asistencia => asistencia.mesa() }
+    }
 }
